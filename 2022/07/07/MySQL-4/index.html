@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="行属性 PK 表示主键 NN 表示不能为NULL AI 表示自动递增，通常用在主键属性上 Default&#x2F;Expression 表示默认值 插入单行插入单行123456789101112131415161718192021222324252627-- 写法一INSERT INTO customersVALUES (	DEFAULT,    &amp;#x27;John&amp;#x27;,    &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL学习 四">
+<meta property="og:url" content="http://example.com/2022/07/07/MySQL-4/index.html">
+<meta property="og:site_name" content="Forcefield635">
+<meta property="og:description" content="行属性 PK 表示主键 NN 表示不能为NULL AI 表示自动递增，通常用在主键属性上 Default&#x2F;Expression 表示默认值 插入单行插入单行123456789101112131415161718192021222324252627-- 写法一INSERT INTO customersVALUES (	DEFAULT,    &amp;#x27;John&amp;#x27;,    &amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/MySQL-4/%E8%A1%8C%E5%B1%9E%E6%80%A7.jpg">
+<meta property="article:published_time" content="2022-07-07T10:45:00.000Z">
+<meta property="article:modified_time" content="2022-07-07T16:12:08.000Z">
+<meta property="article:author" content="Forcefield635">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/MySQL-4/%E8%A1%8C%E5%B1%9E%E6%80%A7.jpg">
+
+<link rel="canonical" href="http://example.com/2022/07/07/MySQL-4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<!-- jquery -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+  
+  <title>MySQL学习 四 | Forcefield635</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a target="_blank" rel="noopener" href="https://github.com/Forcefield635" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Forcefield635</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/07/MySQL-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL学习 四
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-07 18:45:00" itemprop="dateCreated datePublished" datetime="2022-07-07T18:45:00+08:00">2022-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-08 00:12:08" itemprop="dateModified" datetime="2022-07-08T00:12:08+08:00">2022-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/07/07/MySQL-4/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL学习 四" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/07/MySQL-4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/07/MySQL-4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <span id="more"></span>
+
+<h1 id="行属性"><a href="#行属性" class="headerlink" title="行属性"></a>行属性</h1><p><img src="/MySQL-4/%E8%A1%8C%E5%B1%9E%E6%80%A7.jpg"></p>
+<p>PK 表示主键</p>
+<p>NN 表示不能为NULL</p>
+<p>AI 表示自动递增，通常用在主键属性上</p>
+<p>Default&#x2F;Expression 表示默认值</p>
+<h1 id="插入单行"><a href="#插入单行" class="headerlink" title="插入单行"></a>插入单行</h1><figure class="highlight plaintext"><figcaption><span>插入单行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">-- 写法一</span><br><span class="line">INSERT INTO customers</span><br><span class="line">VALUES (</span><br><span class="line">	DEFAULT,</span><br><span class="line">    &#x27;John&#x27;,</span><br><span class="line">    &#x27;Smith&#x27;,</span><br><span class="line">    &#x27;1990-01-01&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    &#x27;address&#x27;,</span><br><span class="line">    &#x27;city&#x27;,</span><br><span class="line">    &#x27;CA&#x27;,</span><br><span class="line">    DEFAULT)</span><br><span class="line">-- 写法二</span><br><span class="line">INSERT INTO customers (</span><br><span class="line">	first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    birth_date,</span><br><span class="line">    address,</span><br><span class="line">    city,</span><br><span class="line">    state)</span><br><span class="line">VALUES (</span><br><span class="line">    &#x27;John&#x27;,</span><br><span class="line">    &#x27;Smith&#x27;,</span><br><span class="line">    &#x27;1990-01-01&#x27;,</span><br><span class="line">    &#x27;address&#x27;,</span><br><span class="line">    &#x27;city&#x27;,</span><br><span class="line">    &#x27;CA&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>写法二，可以调整顺序，默认有值的可以不写</p>
+<h1 id="插入多行"><a href="#插入多行" class="headerlink" title="插入多行"></a>插入多行</h1><p>单表中插入数据</p>
+<p><strong>VALUES</strong>    后面直接加</p>
+<figure class="highlight plaintext"><figcaption><span>插入多行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO products (</span><br><span class="line">	name,quantity_in_stock,unit_price)</span><br><span class="line">VALUES </span><br><span class="line">	(&#x27;product1&#x27;, 1, 1.01),</span><br><span class="line">    (&#x27;product2&#x27;, 2, 2.02),</span><br><span class="line">    (&#x27;product3&#x27;, 3, 3.03)</span><br></pre></td></tr></table></figure>
+
+<h1 id="插入分层行"><a href="#插入分层行" class="headerlink" title="插入分层行"></a>插入分层行</h1><p>多表中插入数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO orders (customer_id,order_date,status)</span><br><span class="line">VALUES 	(1,&#x27;2019-01-02&#x27;,1);</span><br><span class="line">INSERT INTO order_items</span><br><span class="line">VALUES (LAST_INSERT_ID(),1,1,2.95),</span><br><span class="line">		(LAST_INSERT_ID(),2,3,3.95)</span><br><span class="line">-- 函数	LAST_INSERT_ID()	获取数据库最近插入数据的ID</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建表复制"><a href="#创建表复制" class="headerlink" title="创建表复制"></a>创建表复制</h1><p>复制一个表到新表中，但注意新表中没有主键关系和自动递增等</p>
+<p><strong>AS</strong> 后面可以直接跟子句</p>
+<figure class="highlight plaintext"><figcaption><span>复制一个表到新表</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders_archived AS</span><br><span class="line">SELECT * FROM orders</span><br><span class="line"></span><br><span class="line">-- 示例</span><br><span class="line">CREATE TABLE invoices_achived AS</span><br><span class="line">SELECT </span><br><span class="line">	i.invoice_id,</span><br><span class="line">    i.number,</span><br><span class="line">    c.name,</span><br><span class="line">    i.payment_total,</span><br><span class="line">    i.invoice_date,</span><br><span class="line">    i.due_date,</span><br><span class="line">    i.payment_date</span><br><span class="line">FROM invoices i</span><br><span class="line">JOIN clients c</span><br><span class="line">	USING (client_id)</span><br><span class="line">WHERE i.payment_date IS NOT NULL </span><br></pre></td></tr></table></figure>
+
+<h1 id="更新单行"><a href="#更新单行" class="headerlink" title="更新单行"></a>更新单行</h1><figure class="highlight plaintext"><figcaption><span>更新单行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPDATE invoices</span><br><span class="line">SET </span><br><span class="line">	payment_total = invoice_total * 0.5,</span><br><span class="line"> 	payment_date = due_date</span><br><span class="line">WHERE invoice_id = 3</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新多行"><a href="#更新多行" class="headerlink" title="更新多行"></a>更新多行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE customers</span><br><span class="line">SET  points = points+50</span><br><span class="line">WHERE birth_date &lt; &#x27;1990-01-01&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="在UPDATE中使用子查询"><a href="#在UPDATE中使用子查询" class="headerlink" title="在UPDATE中使用子查询"></a>在UPDATE中使用子查询</h1><p>可以先执行子查询语句查看是否正确，再执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">UPDATE invoices</span><br><span class="line">SET </span><br><span class="line">	payment_total = invoice_total * 0.5,</span><br><span class="line"> 	payment_date = due_date</span><br><span class="line">WHERE client_id IN</span><br><span class="line">		(SELECT client_id</span><br><span class="line">        FROM clients</span><br><span class="line">        WHERE state IN (&#x27;CA&#x27;,&#x27;NY&#x27;))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="删除行"><a href="#删除行" class="headerlink" title="删除行"></a>删除行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM invoices</span><br><span class="line">WHERE client_id = (</span><br><span class="line">		SELECT client_id</span><br><span class="line">        FROM clients</span><br><span class="line">        WHERE name = &#x27;Myworks&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Forcefield635 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="Forcefield635 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/06/MySQL-3/" rel="prev" title="MySQL学习 三">
+      <i class="fa fa-chevron-left"></i> MySQL学习 三
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/05/21/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E5%B1%9E%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">行属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%8D%95%E8%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">插入单行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%A4%9A%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">插入多行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%88%86%E5%B1%82%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">插入分层行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E8%A1%A8%E5%A4%8D%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">创建表复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%8D%95%E8%A1%8C"><span class="nav-number">6.</span> <span class="nav-text">更新单行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%A4%9A%E8%A1%8C"><span class="nav-number">7.</span> <span class="nav-text">更新多行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8UPDATE%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.</span> <span class="nav-text">在UPDATE中使用子查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%A1%8C"><span class="nav-number">9.</span> <span class="nav-text">删除行</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Forcefield635"
+      src="/images/%E7%94%AB256.png">
+  <p class="site-author-name" itemprop="name">Forcefield635</p>
+  <div class="site-description" itemprop="description">2的10次方是多少呢？</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Forcefield635" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Forcefield635" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+	  
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1403774122&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Forcefield635</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='0,255,204' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'fNflkA5DGv2EXiwC8Q4I2YF7-gzGzoHsz',
+      appKey     : 'WSCG9v0mOkHYKEbLa6ecXgsn',
+      placeholder: "评论留言在这里ε=ε=ε=(~￣▽￣)~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+
+
+
+
+
+
+<!-- 鼠标樱花飘落特效 -->
+  
+
+
+</body>
+</html>

@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2的10次方是多少呢？">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Forcefield635">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Forcefield635">
+<meta property="og:description" content="2的10次方是多少呢？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Forcefield635">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+<!-- jquery -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+
+
+  <script src="/js/activate-power-mode.min.js"></script>
+  <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+  </script>
+
+
+
+
+  <script async src="/js/cursor/fireworks.js"></script>
+
+
+ 
+<script>
+  var OriginTitile = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "(つェ⊂)我藏好了哦~" + OriginTitile;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "(*´∇｀*) 被你发现啦~" + OriginTitile;
+      titleTime = setTimeout(function() {
+        document.title = OriginTitile;
+      }, 2000);
+    }
+  });
+</script>
+  
+  <title>Forcefield635</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+	<a target="_blank" rel="noopener" href="https://github.com/Forcefield635" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+	<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Forcefield635</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/02/pyautogui/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/02/pyautogui/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-02 14:54:01" itemprop="dateCreated datePublished" datetime="2024-06-02T14:54:01+08:00">2024-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-04 12:00:35" itemprop="dateModified" datetime="2024-08-04T12:00:35+08:00">2024-08-04</time>
+              </span>
+
+          
+            <span id="/2024/06/02/pyautogui/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/06/02/pyautogui/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/06/02/pyautogui/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="pyautogui"><a href="#pyautogui" class="headerlink" title="pyautogui"></a>pyautogui</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 安装pyautogui</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyautogui</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyscreeze</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pillow</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pydirectinput</span><br></pre></td></tr></table></figure>
+
+
+
+<p>按键对应值</p>
+<p>KEY_NAMES &#x3D; [<br>    “\t”,<br>    “\n”,<br>    “\r”,<br>    “ “,<br>    “!”,<br>    ‘“‘,<br>    “#”,<br>    “$”,<br>    “%”,<br>    “&amp;”,<br>    “‘“,<br>    “(“,<br>    “)”,<br>    “*”,<br>    “+”,<br>    “,”,<br>    “-“,<br>    “.”,<br>    “&#x2F;“,<br>    “0”,<br>    “1”,<br>    “2”,<br>    “3”,<br>    “4”,<br>    “5”,<br>    “6”,<br>    “7”,<br>    “8”,<br>    “9”,<br>    “:”,<br>    “;”,<br>    “&lt;”,<br>    “&#x3D;”,<br>    “&gt;”,<br>    “?”,<br>    “@”,<br>    “[“,<br>    “\“,<br>    “]”,<br>    “^”,<br>    “_”,<br>    “&#96;”,<br>    “a”,<br>    “b”,<br>    “c”,<br>    “d”,<br>    “e”,<br>    “f”,<br>    “g”,<br>    “h”,<br>    “i”,<br>    “j”,<br>    “k”,<br>    “l”,<br>    “m”,<br>    “n”,<br>    “o”,<br>    “p”,<br>    “q”,<br>    “r”,<br>    “s”,<br>    “t”,<br>    “u”,<br>    “v”,<br>    “w”,<br>    “x”,<br>    “y”,<br>    “z”,<br>    “{“,<br>    “|”,<br>    “}”,<br>    “~”,<br>    “accept”,<br>    “add”,<br>    “alt”,<br>    “altleft”,<br>    “altright”,<br>    “apps”,<br>    “backspace”,<br>    “browserback”,<br>    “browserfavorites”,<br>    “browserforward”,<br>    “browserhome”,<br>    “browserrefresh”,<br>    “browsersearch”,<br>    “browserstop”,<br>    “capslock”,<br>    “clear”,<br>    “convert”,<br>    “ctrl”,<br>    “ctrlleft”,<br>    “ctrlright”,<br>    “decimal”,<br>    “del”,<br>    “delete”,<br>    “divide”,<br>    “down”,<br>    “end”,<br>    “enter”,<br>    “esc”,<br>    “escape”,<br>    “execute”,<br>    “f1”,<br>    “f10”,<br>    “f11”,<br>    “f12”,<br>    “f13”,<br>    “f14”,<br>    “f15”,<br>    “f16”,<br>    “f17”,<br>    “f18”,<br>    “f19”,<br>    “f2”,<br>    “f20”,<br>    “f21”,<br>    “f22”,<br>    “f23”,<br>    “f24”,<br>    “f3”,<br>    “f4”,<br>    “f5”,<br>    “f6”,<br>    “f7”,<br>    “f8”,<br>    “f9”,<br>    “final”,<br>    “fn”,<br>    “hanguel”,<br>    “hangul”,<br>    “hanja”,<br>    “help”,<br>    “home”,<br>    “insert”,<br>    “junja”,<br>    “kana”,<br>    “kanji”,<br>    “launchapp1”,<br>    “launchapp2”,<br>    “launchmail”,<br>    “launchmediaselect”,<br>    “left”,<br>    “modechange”,<br>    “multiply”,<br>    “nexttrack”,<br>    “nonconvert”,<br>    “num0”,<br>    “num1”,<br>    “num2”,<br>    “num3”,<br>    “num4”,<br>    “num5”,<br>    “num6”,<br>    “num7”,<br>    “num8”,<br>    “num9”,<br>    “numlock”,<br>    “pagedown”,<br>    “pageup”,<br>    “pause”,<br>    “pgdn”,<br>    “pgup”,<br>    “playpause”,<br>    “prevtrack”,<br>    “print”,<br>    “printscreen”,<br>    “prntscrn”,<br>    “prtsc”,<br>    “prtscr”,<br>    “return”,<br>    “right”,<br>    “scrolllock”,<br>    “select”,<br>    “separator”,<br>    “shift”,<br>    “shiftleft”,<br>    “shiftright”,<br>    “sleep”,<br>    “space”,<br>    “stop”,<br>    “subtract”,<br>    “tab”,<br>    “up”,<br>    “volumedown”,<br>    “volumemute”,<br>    “volumeup”,<br>    “win”,<br>    “winleft”,<br>    “winright”,<br>    “yen”,<br>    “command”,<br>    “option”,<br>    “optionleft”,<br>    “optionright”,<br>]</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-29 00:37:13" itemprop="dateCreated datePublished" datetime="2024-05-29T00:37:13+08:00">2024-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-26 00:04:41" itemprop="dateModified" datetime="2024-08-26T00:04:41+08:00">2024-08-26</time>
+              </span>
+
+          
+            <span id="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="PythonGUI学习"><a href="#PythonGUI学习" class="headerlink" title="PythonGUI学习"></a>PythonGUI学习</h1><p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/Blog\source_posts\PythonGUI学习\image-20240529003619857.png" alt="image-20240529003619857"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240529004336702.png" alt="image-20240529004336702"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240529235324304.png" alt="image-20240529235324304"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240529235624397.png" alt="image-20240529235624397"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240530003653539.png" alt="image-20240530003653539"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240530003724491.png" alt="image-20240530003724491"></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240530003614560.png" alt="image-20240530003614560"></p>
+<p>pyqt 设置QTableWidgetItem的文本颜色</p>
+<p><a target="_blank" rel="noopener" href="https://deepinout.com/pyqt5/pyqt5-questions/190_pyqt5_set_text_color_of_qtablewidgetitem_qt.html">PyQt5 设置QTableWidgetItem（Qt）的文本颜色|极客笔记 (deepinout.com)</a></p>
+<p><img src="/2024/05/29/PythonGUI%E5%AD%A6%E4%B9%A0/image-20240826000411235.png" alt="image-20240826000411235"></p>
+<p>end</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/09/Python%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Python学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-09 00:30:54" itemprop="dateCreated datePublished" datetime="2024-05-09T00:30:54+08:00">2024-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-04 01:16:00" itemprop="dateModified" datetime="2024-08-04T01:16:00+08:00">2024-08-04</time>
+              </span>
+
+          
+            <span id="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="Python学习" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240509003101767.png" alt="image-20240509003101767"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"># 查询已安装库</span><br><span class="line">pip list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># pip下载清华镜像</span><br><span class="line"># 安装openCv</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple opencv-python</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple numpy</span><br><span class="line"></span><br><span class="line"># 安装paddleocr（python版本过高安装不了lmdb，导致安装不上paddleocr，用3.9.7没问题）</span><br><span class="line">pip install paddlepaddle -i https://mirror.badidu.com/pypi/simple</span><br><span class="line">pip install &quot;paddleocr&gt;=2.0.1&quot;</span><br><span class="line">    </span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn wheel</span><br><span class="line"></span><br><span class="line"># 安装win32</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pywin32</span><br><span class="line"># 安装后win32模块无法使用</span><br><span class="line">#（1）使用管理员身份运行cmd</span><br><span class="line">#（2） 使用命令行打开python安装目录中的script文件夹</span><br><span class="line">#（3） 执行以下命令 python pywin32_postinstall.py -install</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple keyboard</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">shapely</span><br><span class="line"># 安装pyautogui</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyautogui</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyscreeze</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pillow</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pydirectinput</span><br><span class="line"></span><br><span class="line"># 抓取网页</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests</span><br><span class="line"></span><br><span class="line"># 安装mysql</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pymysql</span><br><span class="line"></span><br><span class="line"># 安装pyecharts</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyecharts</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyecharts-snapshot</span><br><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple snapshot-phantomjs</span><br><span class="line"></span><br><span class="line"># 安装QT6</span><br><span class="line">pip install PyQt6 -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">pip install pyqt6-tools -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line"># 安装PyQt6-Fluent-Widgets主题</span><br><span class="line">pip install &quot;PyQt6-Fluent-Widgets[full]&quot; -i https://pypi.org/simple/</span><br></pre></td></tr></table></figure>
+
+<p>循环</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518233631383.png" alt="image-20240518233631383"></p>
+<p>1，列表</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518125838054.png" alt="image-20240518125838054"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240511204541404.png" alt="image-20240511204541404"></p>
+<p>2、元组</p>
+<p><img src="C:/Users/LSF/AppData/Roaming/Typora/typora-user-images/image-20240518125917580.png" alt="image-20240518125917580"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240512120416111.png" alt="image-20240512120416111"></p>
+<p>3、字符串</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240511223712878.png" alt="image-20240511223712878"></p>
+<p>4、集合</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518130033888.png" alt="image-20240518130033888"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240512115157252.png" alt="image-20240512115157252"></p>
+<p>5、字典</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518130100912.png" alt="image-20240518130100912"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240512120041954.png" alt="image-20240512120041954"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240512121907409.png" alt="image-20240512121907409"></p>
+<p>6、文件</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240512153046233.png" alt="image-20240512153046233"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518140621038.png" alt="image-20240518140621038"></p>
+<p>7、类</p>
+<p>魔术方法</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518182244548.png" alt="image-20240518182244548"></p>
+<p>继承</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518183315050.png" alt="image-20240518183315050"></p>
+<p>复写</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518183701269.png" alt="image-20240518183701269"></p>
+<p>类型注解</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518184358664.png" alt="image-20240518184358664"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518184740436.png" alt="image-20240518184740436"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518184903375.png" alt="image-20240518184903375"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240518185832243.png" alt="image-20240518185832243"></p>
+<p>文件目录 操作</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240519133942323.png" alt="image-20240519133942323"></p>
+<p>1、异常</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240522235758377.png" alt="image-20240522235758377"></p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526013321938.png" alt="image-20240526013321938"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526013703797.png" alt="image-20240526013703797"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526094826921.png" alt="image-20240526094826921"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526095419080.png" alt="image-20240526095419080"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526095923236.png" alt="image-20240526095923236"></p>
+<p>limit  后面跟一个数字表示查询几条数据，跟n,m表示从第n条数据开始查询m条数据</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526100034022.png" alt="image-20240526100034022"></p>
+<p>python使用MySQL</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pymysql <span class="keyword">import</span> Connection</span><br><span class="line"></span><br><span class="line">conn = Connection(host=<span class="string">&#x27;localhost&#x27;</span>, port=<span class="number">3306</span>, user=<span class="string">&#x27;root&#x27;</span>, password=<span class="string">&#x27;qwe123&#x27;</span>, autocommit=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(conn.get_server_info())</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">conn.select_db(<span class="string">&#x27;test&#x27;</span>)</span><br><span class="line">cursor.execute(<span class="string">&quot;insert into students values(10001, &#x27;张三&#x27;, 32)&quot;</span>)</span><br><span class="line">conn.commit()</span><br><span class="line"><span class="comment"># cursor.execute(&quot;select * from test;&quot;)</span></span><br><span class="line"><span class="comment"># result = cursor.fetchall()</span></span><br><span class="line"><span class="comment"># for row in result:</span></span><br><span class="line"><span class="comment">#     print(row)</span></span><br><span class="line"></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>三 01 闭包</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240526235514241.png" alt="image-20240526235514241"></p>
+<p>02 装饰器</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527000214088.png" alt="image-20240527000214088"></p>
+<p>03 设计模式</p>
+<p>a.单例模式</p>
+<p><img src="C:/Users/LSF/AppData/Roaming/Typora/typora-user-images/image-20240527000854899.png" alt="image-20240527000854899"></p>
+<p>06、多线程</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527003952513.png" alt="image-20240527003952513"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527004320897.png" alt="image-20240527004320897"></p>
+<p>08 socket开发</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527005805455.png" alt="image-20240527005805455"></p>
+<p>09 正则</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527010216208.png" alt="image-20240527010216208"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527010926361.png" alt="image-20240527010414335"></p>
+<p>findsall查询的字符串中有括号的话，会分组查询，需要在外面加个括号</p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527011722254.png" alt="image-20240527011722254"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527010506868.png" alt="image-20240527010506868"></p>
+<p><img src="/2024/05/09/Python%E5%AD%A6%E4%B9%A0/image-20240527010609504.png" alt="image-20240527010609504"></p>
+<p>1</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">GitHub下载部署</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-06 00:49:03 / 修改时间：00:58:16" itemprop="dateCreated datePublished" datetime="2024-05-06T00:49:03+08:00">2024-05-06</time>
+            </span>
+
+          
+            <span id="/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/" class="post-meta-item leancloud_visitors" data-flag-title="GitHub下载部署" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>[GitHub下载慢没有代理怎么办_哔哩哔哩_bilibili</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rg4y127yM/?spm_id_from=333.337.search-card.all.click"></a></p>
+<p><img src="/2024/05/06/GitHub%E4%B8%8B%E8%BD%BD%E9%83%A8%E7%BD%B2/Blog\source_posts\GitHub下载部署\image-20240506005601805.png" alt="image-20240506005601805"></p>
+<p>git clone <a target="_blank" rel="noopener" href="https://ghproxy.net/">https://ghproxy.net/</a> </p>
+<p>git submodule update –init –recursive</p>
+<p>vim .git&#x2F;config</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">博客使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-21 14:42:16 / 修改时间：20:57:23" itemprop="dateCreated datePublished" datetime="2023-05-21T14:42:16+08:00">2023-05-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/" class="post-meta-item leancloud_visitors" data-flag-title="博客使用" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">title：文章标题</span><br><span class="line">data：时间（自动生成）</span><br><span class="line">tags：</span><br><span class="line">- 标签一</span><br><span class="line">- 标签二</span><br><span class="line">categories：</span><br><span class="line">- 一级分类</span><br><span class="line">- 二级分类</span><br></pre></td></tr></table></figure>
+<div class="note primary">
+            <p>Front-Matter 是博客最上方以 — 和 — 分隔的区域，用于指定本博客的各种参数值</p>
+          </div>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/05/21/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/21/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/05/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-21 14:34:17" itemprop="dateCreated datePublished" datetime="2023-05-21T14:34:17+08:00">2023-05-21</time>
+            </span>
+
+          
+            <span id="/2023/05/21/hello-world/" class="post-meta-item leancloud_visitors" data-flag-title="Hello World" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/05/21/hello-world/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/21/hello-world/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/07/MySQL-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/07/MySQL-4/" class="post-title-link" itemprop="url">MySQL学习 四</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-07 18:45:00" itemprop="dateCreated datePublished" datetime="2022-07-07T18:45:00+08:00">2022-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-08 00:12:08" itemprop="dateModified" datetime="2022-07-08T00:12:08+08:00">2022-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/07/07/MySQL-4/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL学习 四" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/07/MySQL-4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/07/MySQL-4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <span id="more"></span>
+
+<h1 id="行属性"><a href="#行属性" class="headerlink" title="行属性"></a>行属性</h1><p><img src="/MySQL-4/%E8%A1%8C%E5%B1%9E%E6%80%A7.jpg"></p>
+<p>PK 表示主键</p>
+<p>NN 表示不能为NULL</p>
+<p>AI 表示自动递增，通常用在主键属性上</p>
+<p>Default&#x2F;Expression 表示默认值</p>
+<h1 id="插入单行"><a href="#插入单行" class="headerlink" title="插入单行"></a>插入单行</h1><figure class="highlight plaintext"><figcaption><span>插入单行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">-- 写法一</span><br><span class="line">INSERT INTO customers</span><br><span class="line">VALUES (</span><br><span class="line">	DEFAULT,</span><br><span class="line">    &#x27;John&#x27;,</span><br><span class="line">    &#x27;Smith&#x27;,</span><br><span class="line">    &#x27;1990-01-01&#x27;,</span><br><span class="line">    NULL,</span><br><span class="line">    &#x27;address&#x27;,</span><br><span class="line">    &#x27;city&#x27;,</span><br><span class="line">    &#x27;CA&#x27;,</span><br><span class="line">    DEFAULT)</span><br><span class="line">-- 写法二</span><br><span class="line">INSERT INTO customers (</span><br><span class="line">	first_name,</span><br><span class="line">    last_name,</span><br><span class="line">    birth_date,</span><br><span class="line">    address,</span><br><span class="line">    city,</span><br><span class="line">    state)</span><br><span class="line">VALUES (</span><br><span class="line">    &#x27;John&#x27;,</span><br><span class="line">    &#x27;Smith&#x27;,</span><br><span class="line">    &#x27;1990-01-01&#x27;,</span><br><span class="line">    &#x27;address&#x27;,</span><br><span class="line">    &#x27;city&#x27;,</span><br><span class="line">    &#x27;CA&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>写法二，可以调整顺序，默认有值的可以不写</p>
+<h1 id="插入多行"><a href="#插入多行" class="headerlink" title="插入多行"></a>插入多行</h1><p>单表中插入数据</p>
+<p><strong>VALUES</strong>    后面直接加</p>
+<figure class="highlight plaintext"><figcaption><span>插入多行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO products (</span><br><span class="line">	name,quantity_in_stock,unit_price)</span><br><span class="line">VALUES </span><br><span class="line">	(&#x27;product1&#x27;, 1, 1.01),</span><br><span class="line">    (&#x27;product2&#x27;, 2, 2.02),</span><br><span class="line">    (&#x27;product3&#x27;, 3, 3.03)</span><br></pre></td></tr></table></figure>
+
+<h1 id="插入分层行"><a href="#插入分层行" class="headerlink" title="插入分层行"></a>插入分层行</h1><p>多表中插入数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO orders (customer_id,order_date,status)</span><br><span class="line">VALUES 	(1,&#x27;2019-01-02&#x27;,1);</span><br><span class="line">INSERT INTO order_items</span><br><span class="line">VALUES (LAST_INSERT_ID(),1,1,2.95),</span><br><span class="line">		(LAST_INSERT_ID(),2,3,3.95)</span><br><span class="line">-- 函数	LAST_INSERT_ID()	获取数据库最近插入数据的ID</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建表复制"><a href="#创建表复制" class="headerlink" title="创建表复制"></a>创建表复制</h1><p>复制一个表到新表中，但注意新表中没有主键关系和自动递增等</p>
+<p><strong>AS</strong> 后面可以直接跟子句</p>
+<figure class="highlight plaintext"><figcaption><span>复制一个表到新表</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE orders_archived AS</span><br><span class="line">SELECT * FROM orders</span><br><span class="line"></span><br><span class="line">-- 示例</span><br><span class="line">CREATE TABLE invoices_achived AS</span><br><span class="line">SELECT </span><br><span class="line">	i.invoice_id,</span><br><span class="line">    i.number,</span><br><span class="line">    c.name,</span><br><span class="line">    i.payment_total,</span><br><span class="line">    i.invoice_date,</span><br><span class="line">    i.due_date,</span><br><span class="line">    i.payment_date</span><br><span class="line">FROM invoices i</span><br><span class="line">JOIN clients c</span><br><span class="line">	USING (client_id)</span><br><span class="line">WHERE i.payment_date IS NOT NULL </span><br></pre></td></tr></table></figure>
+
+<h1 id="更新单行"><a href="#更新单行" class="headerlink" title="更新单行"></a>更新单行</h1><figure class="highlight plaintext"><figcaption><span>更新单行</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPDATE invoices</span><br><span class="line">SET </span><br><span class="line">	payment_total = invoice_total * 0.5,</span><br><span class="line"> 	payment_date = due_date</span><br><span class="line">WHERE invoice_id = 3</span><br></pre></td></tr></table></figure>
+
+<h1 id="更新多行"><a href="#更新多行" class="headerlink" title="更新多行"></a>更新多行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UPDATE customers</span><br><span class="line">SET  points = points+50</span><br><span class="line">WHERE birth_date &lt; &#x27;1990-01-01&#x27;</span><br></pre></td></tr></table></figure>
+
+<h1 id="在UPDATE中使用子查询"><a href="#在UPDATE中使用子查询" class="headerlink" title="在UPDATE中使用子查询"></a>在UPDATE中使用子查询</h1><p>可以先执行子查询语句查看是否正确，再执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">UPDATE invoices</span><br><span class="line">SET </span><br><span class="line">	payment_total = invoice_total * 0.5,</span><br><span class="line"> 	payment_date = due_date</span><br><span class="line">WHERE client_id IN</span><br><span class="line">		(SELECT client_id</span><br><span class="line">        FROM clients</span><br><span class="line">        WHERE state IN (&#x27;CA&#x27;,&#x27;NY&#x27;))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="删除行"><a href="#删除行" class="headerlink" title="删除行"></a>删除行</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM invoices</span><br><span class="line">WHERE client_id = (</span><br><span class="line">		SELECT client_id</span><br><span class="line">        FROM clients</span><br><span class="line">        WHERE name = &#x27;Myworks&#x27;)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/06/MySQL-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/06/MySQL-3/" class="post-title-link" itemprop="url">MySQL学习 三</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-06 14:45:41 / 修改时间：23:20:08" itemprop="dateCreated datePublished" datetime="2022-07-06T14:45:41+08:00">2022-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/07/06/MySQL-3/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL学习 三" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/06/MySQL-3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/06/MySQL-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h1><p>多张表中查询数据</p>
+<p><strong>INNER JOIN</strong> 表名 <strong>ON</strong> 连接条件</p>
+<p> INNER 可省略</p>
+<figure class="highlight plaintext"><figcaption><span>示例代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT order_id, oi.product_id, quantity, oi.unit_price</span><br><span class="line">FROM order_items AS oi</span><br><span class="line">INNER JOIN products AS p ON oi.product_id = p.product_id</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/06/MySQL-3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/05/MySQL-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/05/MySQL-1/" class="post-title-link" itemprop="url">MySQL学习 一、介绍与基本语句</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-05 20:44:52" itemprop="dateCreated datePublished" datetime="2022-07-05T20:44:52+08:00">2022-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-06 18:56:24" itemprop="dateModified" datetime="2022-07-06T18:56:24+08:00">2022-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/07/05/MySQL-1/" class="post-meta-item leancloud_visitors" data-flag-title="MySQL学习 一、介绍与基本语句" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/07/05/MySQL-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/07/05/MySQL-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="安装与卸载"><a href="#安装与卸载" class="headerlink" title="安装与卸载"></a>安装与卸载</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>MySQL官网 <a target="_blank" rel="noopener" href="https://www.mysql.com/">https://www.mysql.com/</a></p>
+<p>安装步骤，网上其他都有就不写了</p>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>主要讲讲卸载，主要是有可能卸不干净，几个版本一起安装可能不好配置和冲突。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/05/MySQL-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%94%AB256.png">
+      <meta itemprop="name" content="Forcefield635">
+      <meta itemprop="description" content="2的10次方是多少呢？">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Forcefield635">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="post-title-link" itemprop="url">二叉树遍历</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-17 22:30:11 / 修改时间：22:34:26" itemprop="dateCreated datePublished" datetime="2022-03-17T22:30:11+08:00">2022-03-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" class="post-meta-item leancloud_visitors" data-flag-title="二叉树遍历" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/03/17/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight c++"><figcaption><span>前序遍历</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traversal</span><span class="params">(TreeNode* cur, vector&lt;<span class="type">int</span>&gt;&amp; vec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (cur == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">        vec.<span class="built_in">push_back</span>(cur-&gt;val);    <span class="comment">// 中</span></span><br><span class="line">        <span class="built_in">traversal</span>(cur-&gt;left, vec);  <span class="comment">// 左</span></span><br><span class="line">        <span class="built_in">traversal</span>(cur-&gt;right, vec); <span class="comment">// 右</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line">        <span class="built_in">traversal</span>(root, result);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Forcefield635"
+      src="/images/%E7%94%AB256.png">
+  <p class="site-author-name" itemprop="name">Forcefield635</p>
+  <div class="site-description" itemprop="description">2的10次方是多少呢？</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Forcefield635" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Forcefield635" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+	  
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1403774122&auto=1&height=66"></iframe>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Forcefield635</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='0,255,204' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : 'fNflkA5DGv2EXiwC8Q4I2YF7-gzGzoHsz',
+      appKey     : 'WSCG9v0mOkHYKEbLa6ecXgsn',
+      placeholder: "评论留言在这里ε=ε=ε=(~￣▽￣)~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+
+
+
+
+
+
+<!-- 鼠标樱花飘落特效 -->
+  
+
+
+</body>
+</html>
